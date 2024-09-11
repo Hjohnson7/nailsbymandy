@@ -29,4 +29,5 @@ jobs:
     - name: Run Tests
       run: |
         cd ..
+	cd backend/nailsbymandy
         python manage.py test

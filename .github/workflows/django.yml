@@ -29,5 +29,6 @@ jobs:
     - name: Run Tests
       run: |
         cd ../
-	cd backend/nailsbymandy
+	cd backend
+	cd nailsbymandy
         python manage.py test

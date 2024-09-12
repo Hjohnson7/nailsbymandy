@@ -1,0 +1,31 @@
+services:
+  backend:
+    build:
+      context: ./backend/nailsbymandy/  # Path to the Django backend directory
+      dockerfile: Dockerfile
+    container_name: django-backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/nailsbymandy  # Sync project files for development
+    ports:
+      - "8000:8000"
+
+    environment:
+      - DEBUG=True
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=yourdbname
+      - DB_USER=yourdbuser
+      - DB_PASSWORD=yourdbpassword
+
+  frontend:
+    build:
+      context: ./frontend/nailsbymandy/  # Path to the React frontend directory
+      dockerfile: Dockerfile
+    container_name: react-frontend
+    stdin_open: true
+    tty: true
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development

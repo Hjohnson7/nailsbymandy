@@ -8,7 +8,9 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 // Checkout your code from the repository
-                git 'https://github.com/Hjohnson7/nailsbymandy.git'
+                    git branch: 'main', 
+                    credentialsId: 'git-credentials', // This matches the credentials ID from step 4
+                    url: 'https://github.com/Hjohnson7/nailsbymandy.git'
             }
         }
 

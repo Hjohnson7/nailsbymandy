@@ -24,7 +24,7 @@ pipeline {
                     // image.tag('your-image-name:tag1')
                     echo 'DOCKER VERSION IS:'
                     sh 'docker --version'
-                    sh 'docker-compose up --build'
+                    sh 'docker-compose up -d --build'
                 }
             }
         }
@@ -33,8 +33,8 @@ pipeline {
             steps {
                 script {
                     // Save Docker image to a tar file
-                    // sh 'docker save your-image-name:latest -o /Users/harryjohhnson/Desktop/nailsbymandy/docker-builds/your-image-name.tar'
                     echo "This will save the Docker image."
+                    sh 'docker save your-image-name:latest -o /Users/harryjohhnson/Desktop/nailsbymandy/docker-builds/your-image-name.tar'
                 }
             }
         }

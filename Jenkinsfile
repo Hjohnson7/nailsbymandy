@@ -23,7 +23,7 @@ pipeline {
                     // // Optionally, you can tag the image
                     // image.tag('your-image-name:tag1')
                     echo 'DOCKER VERSION IS:'
-                    docker --version
+                    sh 'docker --version'
                 }
             }
         }

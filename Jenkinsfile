@@ -1,3 +1,5 @@
+echo "STARTING NEW BUILD"
+
 pipeline {
     agent any
 

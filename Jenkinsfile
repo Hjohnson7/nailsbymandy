@@ -34,7 +34,7 @@ pipeline {
                 script {
                     // Save Docker image to a tar file
                     echo "This will save the Docker image."
-                    sh 'docker save your-image-name:latest -o /Users/harryjohhnson/Desktop/nailsbymandy/docker-builds/your-image-name.tar'
+                    sh 'docker save your-image-name:latest -o C:/Users/harryjohhnson/Desktop/nailsbymandy/docker-builds/your-image-name.tar'
                 }
             }
         }

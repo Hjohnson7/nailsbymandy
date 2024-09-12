@@ -24,6 +24,7 @@ pipeline {
                     // image.tag('your-image-name:tag1')
                     echo 'DOCKER VERSION IS:'
                     sh 'docker --version'
+                    sh 'docker-compose up --build'
                 }
             }
         }

@@ -18,14 +18,14 @@ services:
       - DB_USER=yourdbuser
       - DB_PASSWORD=yourdbpassword
 
-  frontend:
-    build:
-      context: ./frontend/nailsbymandy/  # Path to the React frontend directory
-      dockerfile: Dockerfile
-    container_name: react-frontend
-    stdin_open: true
-    tty: true
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=development
+  # frontend:
+  #   build:
+  #     context: ./frontend/nailsbymandy/  # Path to the React frontend directory
+  #     dockerfile: Dockerfile
+  #   container_name: react-frontend
+  #   stdin_open: true
+  #   tty: true
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - NODE_ENV=development

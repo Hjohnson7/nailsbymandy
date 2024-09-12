@@ -18,10 +18,12 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image using a Dockerfile
-                    def image = docker.build("your-image-name:latest", "-f backend/nailsbymandy .")
+                    // def image = docker.build("your-image-name:latest", "-f backend/nailsbymandy .")
 
-                    // Optionally, you can tag the image
-                    image.tag('your-image-name:tag1')
+                    // // Optionally, you can tag the image
+                    // image.tag('your-image-name:tag1')
+                    echo 'DOCKER VERSION IS:'
+                    docker --version
                 }
             }
         }
@@ -30,7 +32,8 @@ pipeline {
             steps {
                 script {
                     // Save Docker image to a tar file
-                    sh 'docker save your-image-name:latest -o /Users/harryjohhnson/Desktop/nailsbymandy/docker-builds/your-image-name.tar'
+                    // sh 'docker save your-image-name:latest -o /Users/harryjohhnson/Desktop/nailsbymandy/docker-builds/your-image-name.tar'
+                    echo "This will save the Docker image."
                 }
             }
         }

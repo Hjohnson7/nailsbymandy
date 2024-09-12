@@ -28,16 +28,5 @@ pipeline {
                 }
             }
         }
-
-        stage('Save Docker Image Locally') {
-            steps {
-                script {
-                    // Save Docker image to a tar file
-                    echo "This will save the Docker image."
-                    sh "realpath ."
-                    sh 'docker save your-image-name:latest -o ./docker-builds/your-image-name.tar'
-                }
-            }
-        }
     }
 }

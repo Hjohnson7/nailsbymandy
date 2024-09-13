@@ -3,7 +3,7 @@ services:
     build:
       context: ./backend/nailsbymandy/  # Path to the Django backend directory
       dockerfile: Dockerfile
-    container_name: django-backend
+    container_name: django-backend-new
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./backend:/nailsbymandy  # Sync project files for development

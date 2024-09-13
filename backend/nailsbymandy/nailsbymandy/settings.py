@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'accounts',
     'rest_framework',
     'djoser',
+    'react_frontend.apps.ReactFrontendConfig',
 ]
 
 MIDDLEWARE = [

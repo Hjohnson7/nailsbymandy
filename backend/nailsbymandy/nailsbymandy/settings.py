@@ -15,6 +15,13 @@ from datetime import timedelta
 from django.core.management.utils import get_random_secret_key
 import os
 
+def get_env_variable(var_name):
+    """Get the environment variable or raise an exception."""
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        raise Exception(f"Set the {var_name} environment variable")
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -91,8 +98,12 @@ WSGI_APPLICATION = 'nailsbymandy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': get_env_variable('DB_NAME'),
+        'USER': get_env_variable('DB_USER'),
+        'PASSWORD': get_env_variable('DB_PASSWORD'),
+        'HOST': get_env_variable('DB_HOST'),
+        'PORT': get_env_variable('DB_PORT'),
     }
 }
 

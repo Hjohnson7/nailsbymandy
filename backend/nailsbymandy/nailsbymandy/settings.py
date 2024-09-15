@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'react_frontend.apps.ReactFrontendConfig',
+    'bookings.apps.BookingsConfig',
 ]
 
 MIDDLEWARE = [
@@ -96,7 +97,8 @@ WSGI_APPLICATION = 'nailsbymandy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
+if os.environ.get('DB_NAME', None):
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': get_env_variable('DB_NAME'),
@@ -106,6 +108,15 @@ DATABASES = {
         'PORT': get_env_variable('DB_PORT'),
     }
 }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'mydatabase', # This is where you put the name of the db file. 
+                 # If one doesn't exist, it will be created at migration time.
+        }
+    }
+
 
 
 # Password validation

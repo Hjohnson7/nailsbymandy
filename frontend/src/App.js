@@ -4,14 +4,16 @@ import { Provider } from 'react-redux'
 import './App.css';
 
 // PAGES 
-import Activate from "./containers/Activate"
-import Home from "./containers/home/index"
-import LoginPage from "./containers/login/index"
-import SignUpPage from "./containers/sign-up/index"
-import ForgotPasswordPage from "./containers/forgot-password/index"
-import ResetPasswordPage from "./containers/reset-password/index"
+import Activate from "./screens/Activate"
+import Home from "./screens/home/index"
+import LoginPage from "./screens/login/index"
+import SignUpPage from "./screens/sign-up/index"
+import ForgotPasswordPage from "./screens/forgot-password/index"
+import ResetPasswordPage from "./screens/reset-password/index"
 import NotFoundPage from "./components/four-zero-four/four-zero-four"
-import './styles/assets/css/main.css';
+import BookingsUserView from "./screens/user-screens/bookings"
+import Layout from "./hoca/Layout"
+import CalendarScreen from "./screens/mandys-screens/calendar-screen"
 // STORE
 import store from "./store"
 
@@ -19,7 +21,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <Layout>
         <div id="main">
           <div className="inner">
@@ -30,6 +32,8 @@ function App() {
               <Route exact path="/login" element={<LoginPage />} />
               <Route exact path="/reset-password" element={<ForgotPasswordPage  />} />
               <Route exact path="/password/reset/confirm/:uid/:token" element={<ResetPasswordPage />} />
+              <Route exact path="/user-bookings" element={<BookingsUserView />} />
+              <Route exact path="/mandy/calendar" element={<CalendarScreen />} />
               <Route
                     path="*"
                     element={<NotFoundPage />}
@@ -37,7 +41,7 @@ function App() {
             </Routes>
           </div>
         </div>
-        <Sidebar />
+        {/* <Sidebar /> */}
       </Layout>
     </Router>
   </Provider>

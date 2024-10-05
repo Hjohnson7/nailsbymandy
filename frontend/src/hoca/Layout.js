@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { checkAuthenticated, load_user } from '../actions/auth';
-import AlertNotification from "../components/alerts"
+import AlertNotification from "../components/alerts/alerts"
 // import Footer from '../components/footer/footer'
+import HeaderBar from "../components/header-bar/header-bar"
+import NavigationBar from "../components/navigation-bar/navigation-bar"
 
 const Layout = ({ checkAuthenticated, load_user, children, isAuthenticated }) => {
     
@@ -13,6 +15,8 @@ const Layout = ({ checkAuthenticated, load_user, children, isAuthenticated }) =>
 
     return (
         <>
+        <HeaderBar />
+        <NavigationBar />
         <div id="wrapper">
                 <AlertNotification 
                 />

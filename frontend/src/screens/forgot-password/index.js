@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { useNavigate, redirect } from "react-router-dom"
 import { reset_password } from "../../actions/auth"
 import { connect } from 'react-redux'
-import HeaderBar from "../../components/header-bar/header-bar"
 
 const ForgotPasswordPage = ({reset_password, isAuthenticated}) => {
 
@@ -32,10 +31,6 @@ const ForgotPasswordPage = ({reset_password, isAuthenticated}) => {
 
     return (
         <>
-            <HeaderBar 
-            text="Nikki Taylor"
-            brackets="(Reset Password)"
-            />
         <section className="formSection">
             <div className="loginContainer">
             <ForgotPasswordSide
